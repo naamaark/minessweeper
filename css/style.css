@@ -1,0 +1,51 @@
+body {
+    background-color: rgb(221, 194, 200);
+    color: rgb(122, 121, 185);
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
+
+  table {
+    margin: auto;
+    background-color: rgb(56, 96, 119);
+  }
+
+.cell {
+    height: 30px;
+    width: 30px; 
+    background-color: gray;
+}
+
+button{
+    height: 70px;
+    width: 70px; 
+}
+
+.timer{
+    background-color: indianred;
+    color: white;
+    display: inline;
+    height: 70px;
+    width: 120px; 
+    margin: auto;
+
+}
+
+.modal{
+    background-color: teal;
+    height: 50px;
+    width: 100px;
+    display: none;
+    margin: auto;
+    position: fixed;
+}
+
+.size{
+    height: 50px;
+    width: 100px; 
+}
+
+.disabled{
+    opacity: 0.6;
+}
+
