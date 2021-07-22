@@ -9,6 +9,10 @@ body {
     margin: auto;
     background-color: rgb(56, 96, 119);
   }
+  h1{
+    display: inline;
+    color: rgb(133, 172, 216);
+  }
 
 .cell {
     height: 30px;
@@ -16,36 +20,83 @@ body {
     background-color: gray;
 }
 
-button{
-    height: 70px;
-    width: 70px; 
+.button-cell{
+    height: 32px;
+    width: 32px; 
 }
 
+.button-size{
+    height: 20px; 
+    margin: 20px;
+    background-color: thistle;
+}
 .timer{
     background-color: indianred;
     color: white;
     display: inline;
-    height: 70px;
-    width: 120px; 
+    height: 100px;
+    width: 150px; 
     margin: auto;
-
+    text-align: center;
+    border-radius: 30%;
+    border-color: rgb(53, 53, 158);
+    text-align: center;
+   
 }
 
 .modal{
-    background-color: teal;
-    height: 50px;
-    width: 100px;
+    background-color: rgb(0, 5, 0);
+    color: wheat;
     display: none;
     margin: auto;
-    position: fixed;
-}
+    position:fixed;
+    margin: auto;
+    width: 30%;
+    height: 30%;
+    z-index: 10;
+    border-radius: 20%;
+    vertical-align: middle;
+    left: 35%;
 
-.size{
-    height: 50px;
-    width: 100px; 
 }
 
 .disabled{
     opacity: 0.6;
 }
 
+.lives{
+    display: inline;
+    margin: 20px;
+    left: 40%;
+}
+
+.hint{
+    padding-left: 20px;
+    display: inline;
+}
+
+.smiley{
+    margin: 20px;
+}
+
+.footer {  
+    position: fixed;  
+    left: 10px;  
+    bottom: 0%;  
+    right: 10px;   
+    width: 95%;  
+    background-color: gray;  
+    color: white;  
+    text-align: center;  
+    }
+
+.score{
+    background-color: indianred;
+    color: white;
+    display: block;
+    margin: 20px;
+    text-align: center;
+    border-color: rgb(53, 53, 158);
+    text-align: center;
+    min-width: 50px;
+}
