@@ -2,54 +2,63 @@ body {
     background-color: rgb(221, 194, 200);
     color: rgb(122, 121, 185);
     text-align: center;
+    background-image: url(../img/desert.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  }
+}
 
-  table {
+table {
     margin: auto;
     background-color: rgb(56, 96, 119);
-  }
-  h1{
+}
+
+h1 {
     display: inline;
-    color: rgb(133, 172, 216);
-  }
+    color: rgb(41, 73, 110);
+    text-shadow: 2px 2px lightcoral;
+}
 
 .cell {
     height: 30px;
-    width: 30px; 
+    width: 30px;
     background-color: gray;
 }
 
-.button-cell{
+.button-cell {
     height: 32px;
-    width: 32px; 
-}
-
-.button-size{
-    height: 20px; 
-    margin: 20px;
+    width: 32px;
     background-color: thistle;
 }
-.timer{
+
+.button-size {
+    height: 30px;
+    margin: 15px;
+    background-color: darkblue;
+    color: white;
+}
+
+.timer {
     background-color: indianred;
     color: white;
     display: inline;
     height: 100px;
-    width: 150px; 
+    width: 150px;
     margin: auto;
     text-align: center;
     border-radius: 30%;
     border-color: rgb(53, 53, 158);
     text-align: center;
-   
+    padding: 2px;
+    border: 2px dashed rgb(117, 117, 185);
 }
 
-.modal{
+.modal {
     background-color: rgb(0, 5, 0);
     color: wheat;
     display: none;
     margin: auto;
-    position:fixed;
+    position: fixed;
     margin: auto;
     width: 30%;
     height: 30%;
@@ -57,46 +66,47 @@ body {
     border-radius: 20%;
     vertical-align: middle;
     left: 35%;
-
 }
 
-.disabled{
+.disabled {
     opacity: 0.6;
 }
 
-.lives{
+.lives {
     display: inline;
     margin: 20px;
     left: 40%;
 }
 
-.hint{
+.hint {
     padding-left: 20px;
     display: inline;
+    cursor: pointer;
 }
 
-.smiley{
-    margin: 20px;
+.smiley {
+    margin: 7px;
+    cursor: pointer;
 }
 
-.footer {  
-    position: fixed;  
-    left: 10px;  
-    bottom: 0%;  
-    right: 10px;   
-    width: 95%;  
-    background-color: gray;  
-    color: white;  
-    text-align: center;  
-    }
+.footer {
+    position: fixed;
+    left: 10px;
+    bottom: 0%;
+    right: 10px;
+    width: 95%;
+    background-color: gray;
+    color: white;
+    text-align: center;
+}
 
-.score{
+.score {
     background-color: indianred;
     color: white;
-    display: block;
-    margin: 20px;
+    display: inline-block;
+    margin: 10px;
     text-align: center;
-    border-color: rgb(53, 53, 158);
+    border: 2px dashed rgb(117, 117, 185);
     text-align: center;
-    min-width: 50px;
+    width: 30%;
 }

@@ -14,22 +14,22 @@ function getRandomPos() {
 function changeSize(size, mines) {
     gLevel.SIZE = size;
     gLevel.MINES = mines;
-    gScores[gLevel.SIZE].push(gGame.score);
     clearInterval(timerIntrval);
     initGame();
 }
 
 function renderTimer() {
+    var strHTML = '';
     var elDiv = document.querySelector(".timer")
-    elDiv.innerText = 's:' + gTimer.s + ' m:' + gTimer.m + ' h:' + gTimer.h;
+    strHTML += 's:' + gTimer.s + ' m:' + gTimer.m + ' h:' + gTimer.h;
+    elDiv.innerText = strHTML;
 }
 
 function renderScore() {
     var elDiv = document.querySelector(".score")
     size = gLevel.SIZE.toString();
-    var currScore = gScores[size] ? gGame.score : 'no score';
     var bestScore = gScores[size] ? Math.min.apply(null, gScores[size]) : 'no score';
-    elDiv.innerText = 'current score: ' + currScore + ' best score: ' + bestScore;
+    elDiv.innerText = ' best score: ' + bestScore;
 }
 
 function countMines(cellI, cellJ, board) {
@@ -70,6 +70,8 @@ function renderHint() {
 
 function updateTimer() {
     gTimer.s++;
+    gGame.score++;
+    console.log(gGame.score);
     if (gTimer.s === 60) {
         gTimer.s = 0;
         gTimer.m++;

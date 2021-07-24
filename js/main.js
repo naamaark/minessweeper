@@ -5,7 +5,7 @@ var timerIntrval;
 var gBoard = [];
 var gLevel = { SIZE: 4, MINES: 2 };
 var gGame = { isOn: false, shownCount: 0, markedCount: 0, secsPassed: 0, minesPos: [], lives: 3, hints: 3, isHintMode: false, score: 0 }
-var gScores = { 4: [], 8: [], 12: [] };
+var gScores = { 4: [Infinity], 8: [Infinity], 12: [Infinity] };
 
 const MINE = '&#128163';
 const EMPTY = ' ';
@@ -26,15 +26,21 @@ function initGame() {
     gGame.lives = 3;
     gGame.hints = 3;
     gGame.score = 0;
+    gTimer.s = 0;
+    gTimer.m = 0;
+    gTimer.h = 0;
     renderScore();
     renderLives();
+    renderTimer();
     renderSmiley(NORMAL);
     renderHint();
+    clearInterval(timerIntrval);
     var elModal = document.querySelector(".modal");
     elModal.style.display = 'none';
     getMinesOptionalPos();
     buildBoard();
     renderBoard();
+    console.log(gScores);
     gGame.isOn = true;
 }
 
@@ -95,8 +101,6 @@ function cellClicked(elButton, cellI, cellJ) {
         renderHint();
         return;
     }
-    gGame.score++;
-    renderScore();
     if (isFirstClick) {
         timerIntrval = setInterval(updateTimer, 1000);
         setMines(cell);
@@ -117,11 +121,11 @@ function cellMarked(elButton, cellI, cellJ) {
     var elCell = elButton.parentElement;
     var cell = gBoard[cellI][cellJ];
     if (cell.isMarked) {
-        elCell.innerHTML = '<button class="button-cell"  onclick="cellClicked(event, this,' + cellI + ',' + cellJ + ')" oncontextmenu="cellMarked(this,' + cellI + ',' + cellJ + '); return false">' + EMPTY + '</button>'
+        elCell.innerHTML = '<button class="button-cell"  onclick="cellClicked(this,' + cellI + ',' + cellJ + ')" oncontextmenu="cellMarked(this,' + cellI + ',' + cellJ + '); return false">' + EMPTY + '</button>'
         cell.isMarked = false;
     } else {
         cell.isMarked = true;
-        elCell.innerHTML = '<button class="button-cell" onclick="cellClicked(event, this,' + cellI + ',' + cellJ + ')" oncontextmenu="cellMarked(this,' + cellI + ',' + cellJ + '); return false">' + FLAG + '</button>'
+        elCell.innerHTML = '<button class="button-cell" onclick="cellClicked(this,' + cellI + ',' + cellJ + ')" oncontextmenu="cellMarked(this,' + cellI + ',' + cellJ + '); return false">' + FLAG + '</button>'
     }
     checkGameOver();
 }
@@ -197,7 +201,6 @@ function mineClicked(cell, elCell) {
                 }
             }
         }
-        gScores[gLevel.SIZE].push(gGame.score);
         clearInterval(timerIntrval);
         renderSmiley(DEAD);
         showModal(false);
